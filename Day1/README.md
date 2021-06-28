@@ -101,3 +101,16 @@ When it prompts for type of project, type maven-archetype-webapp
 When it prompts for groupId, type org.tektutor
 When it prompts for version, type 1.0.0
 Accept defaults by pressing Enter. If all goes well, you will have a web application created at this point!
+
+### Executing multi-module project
+```
+cd Day1/CRM
+mvn clean package
+```
+
+### Check how the effective pom looks inside frontend module
+```
+cd Day1/CRM/frontend
+mvn help:effective-pom > effective-pom.yml
+cd ..
+```
