@@ -62,3 +62,13 @@ mvn help:describe -Dcmd=clean
 ```
 mvn help:describe -Dcmd=site
 ```
+
+### Listing the goals supported by a Maven plugin
+```
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin
+```
+
+### Listing the goals supported by a Maven plugin along with configuration details
+```
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin -Ddetail
+```
