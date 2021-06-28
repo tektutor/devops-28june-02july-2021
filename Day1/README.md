@@ -72,3 +72,13 @@ mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin
 ```
 mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin -Ddetail
 ```
+
+### Printing effective pom
+```
+mvn help:effective-pom
+```
+
+### Redirecting the output of effective-pom to a file
+```
+mvn help:effective-pom > effective-pom.txt 2>&1
+```
