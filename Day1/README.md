@@ -108,9 +108,23 @@ cd Day1/CRM
 mvn clean package
 ```
 
+### Check how the effective pom looks from project home
+```
+cd Day1/CRM
+mvn help:effective-pom > effective-pom.yml
+cd ..
+```
+
 ### Check how the effective pom looks inside frontend module
 ```
 cd Day1/CRM/frontend
+mvn help:effective-pom > effective-pom.yml
+cd ..
+```
+
+### Check how the effective pom looks inside main module
+```
+cd Day1/CRM/main
 mvn help:effective-pom > effective-pom.yml
 cd ..
 ```
