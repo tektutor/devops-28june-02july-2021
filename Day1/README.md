@@ -18,3 +18,86 @@
  - Maven dependencies
      - are third-party libraries used by your project
           for example: JUnit, log4j, spring-boot framework, etc,, 
+
+### Compiling the Hello project
+```
+mvn compile
+```
+
+### Executing the Hello application using the .class file
+```
+cd target/classes
+java org.tektutor.Hello
+cd ../..
+```
+
+### Executing the test cases
+```
+mvn test
+````
+
+### Creating jar file 
+```
+mvn package
+```
+
+### Executing the jar file
+```
+cd target
+java -classpath tektutor-hello-app-1.0.0.jar org.tektutor.Hello
+cd ..
+```
+
+### Listing default life-cycle phases
+```
+mvn help:describe -Dcmd=compile
+```
+
+### Listing clean life-cycle phases
+```
+mvn help:describe -Dcmd=clean
+```
+
+### Listing site life-cycle phases
+```
+mvn help:describe -Dcmd=site
+```
+
+### Listing the goals supported by a Maven plugin
+```
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin
+```
+
+### Listing the goals supported by a Maven plugin along with configuration details
+```
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-compiler-plugin -Ddetail
+```
+
+### Printing effective pom
+```
+mvn help:effective-pom
+```
+
+### Redirecting the output of effective-pom to a file
+```
+mvn help:effective-pom > effective-pom.txt 2>&1
+```
+
+### Creating a hello java project using archetype plugin in batch mode(non-interactive mode)
+```
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=org.tektutor -DartifactId=hello -Dversion=1.0.0 -DinteractiveMode=false
+```
+
+### Creating a sample web application using archetype plugin in batch mode
+```
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-helloweb-app -Dversion=1.0.0 -DinteractiveMode=false
+```
+
+### Creating a web application in interactive mode
+```
+mvn archetype:generate
+```
+When it prompts for type of project, type maven-archetype-webapp
+When it prompts for groupId, type org.tektutor
+When it prompts for version, type 1.0.0
+Accept defaults by pressing Enter. If all goes well, you will have a web application created at this point!
