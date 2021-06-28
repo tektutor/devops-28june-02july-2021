@@ -145,3 +145,8 @@ mvn package -X > out.yml 2>&1
 ```
 docker run -d --name jfrog --hostname jfrog -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-oss:latest
 ```
+
+### Verifying if the JFrog Artifactory container is running
+```
+docker ps
+```
