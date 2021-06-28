@@ -101,3 +101,58 @@ When it prompts for type of project, type maven-archetype-webapp
 When it prompts for groupId, type org.tektutor
 When it prompts for version, type 1.0.0
 Accept defaults by pressing Enter. If all goes well, you will have a web application created at this point!
+
+### Executing multi-module project
+```
+cd Day1/CRM
+mvn clean package
+```
+
+### Check how the effective pom looks from project home
+```
+cd Day1/CRM
+mvn help:effective-pom > effective-pom.yml
+cd ..
+```
+
+### Check how the effective pom looks inside frontend module
+```
+cd Day1/CRM/frontend
+mvn help:effective-pom > effective-pom.yml
+cd ..
+```
+
+### Check how the effective pom looks inside main module
+```
+cd Day1/CRM/main
+mvn help:effective-pom > effective-pom.yml
+cd ..
+```
+
+### Finding the dependency of your project
+```
+cd Day1/CRM
+mvn dependency:tree
+```
+
+### Enabling debug mode to troubleshoot
+```
+cd Day1/CRM
+mvn package -X > out.yml 2>&1
+```
+
+### Creating a JFrog Artifactory Docker container
+```
+docker run -d --name jfrog --hostname jfrog -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-oss:latest
+```
+
+### Verifying if the JFrog Artifactory container is running
+```
+docker ps
+```
+
+### You may access the JFrog Artifactory web page from your lab machine web browser
+```
+http://localhost:8081
+```
+The above URL will be redirectly automatically to http://localhost:8082/ui/login
