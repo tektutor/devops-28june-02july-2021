@@ -140,3 +140,8 @@ mvn dependency:tree
 cd Day1/CRM
 mvn package -X > out.yml 2>&1
 ```
+
+### Creating a JFrog Artifactory Docker container
+```
+docker run -d --name jfrog --hostname jfrog -p 8081:8081 -p 8082:8082 docker.bintray.io/jfrog/artifactory-oss:latest
+```
