@@ -82,3 +82,13 @@ mvn help:effective-pom
 ```
 mvn help:effective-pom > effective-pom.txt 2>&1
 ```
+
+### Creating a hello java project using archetype plugin in batch mode(non-interactive mode)
+```
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=org.tektutor -DartifactId=hello -Dversion=1.0.0 -DinteractiveMode=false
+```
+
+### Creating a web application in interactive mode
+```
+mvn archetype:generate
+```
