@@ -18,3 +18,32 @@
  - Maven dependencies
      - are third-party libraries used by your project
           for example: JUnit, log4j, spring-boot framework, etc,, 
+
+### Compiling the Hello project
+```
+mvn compile
+```
+
+### Executing the Hello application using the .class file
+```
+cd target/classes
+java org.tektutor.Hello
+cd ../..
+```
+
+### Executing the test cases
+```
+mvn test
+````
+
+### Creating jar file 
+```
+mvn package
+```
+
+### Executing the jar file
+```
+cd target
+java -classpath tektutor-hello-app-1.0.0.jar org.tektutor.Hello
+cd ..
+```
