@@ -12,7 +12,7 @@
  - each plugin has one or more goals
  - each plugin goal supports a specific tasks
      - e.g maven-compiler-plugin supports a goal called 'compile' to compile application source code
-     -     maven-compiler-plugin also supports another goal called 'test-compile' to compile test source code(JUnit/TestNg,etc.,)
+     - maven-compiler-plugin also supports another goal called 'test-compile' to compile test source code(JUnit/TestNg,etc.,)
  - Maven plugins
      - are used by Maven to compile your project or package your application binaries, deploy your binaries else where
  - Maven dependencies
