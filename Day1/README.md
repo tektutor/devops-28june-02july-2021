@@ -134,3 +134,9 @@ cd ..
 cd Day1/CRM
 mvn dependency:tree
 ```
+
+### Enabling debug mode to troubleshoot
+```
+cd Day1/CRM
+mvn package -X > out.yml 2>&1
+```
