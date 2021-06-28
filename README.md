@@ -1,4 +1,4 @@
-### Lab Setup
+### DevOps Training - Lab Setup
 We need CentOS 7.7 or CentOS 8.3 64-bit OS for this training. We need the below softwares to practice the lab exercises.
 
 1. vim or sublime text editor
