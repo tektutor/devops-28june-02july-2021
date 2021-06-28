@@ -47,3 +47,18 @@ cd target
 java -classpath tektutor-hello-app-1.0.0.jar org.tektutor.Hello
 cd ..
 ```
+
+### Listing default life-cycle phases
+```
+mvn help:describe -Dcmd=compile
+```
+
+### Listing clean life-cycle phases
+```
+mvn help:describe -Dcmd=clean
+```
+
+### Listing site life-cycle phases
+```
+mvn help:describe -Dcmd=site
+```
