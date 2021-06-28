@@ -97,3 +97,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=or
 ```
 mvn archetype:generate
 ```
+When it prompts for type of project, type maven-archetype-webapp
+When it prompts for groupId, type org.tektutor
+When it prompts for version, type 1.0.0
+Accept defaults by pressing Enter. If all goes well, you will have a web application created at this point!
