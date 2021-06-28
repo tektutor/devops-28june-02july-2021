@@ -150,3 +150,9 @@ docker run -d --name jfrog --hostname jfrog -p 8081:8081 -p 8082:8082 docker.bin
 ```
 docker ps
 ```
+
+### You may access the JFrog Artifactory web page from your lab machine web browser
+```
+http://localhost:8081
+```
+The above URL will be redirectly automatically to http://localhost:8082/ui/login
