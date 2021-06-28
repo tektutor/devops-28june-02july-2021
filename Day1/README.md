@@ -128,3 +128,9 @@ cd Day1/CRM/main
 mvn help:effective-pom > effective-pom.yml
 cd ..
 ```
+
+### Finding the dependency of your project
+```
+cd Day1/CRM
+mvn dependency:tree
+```
