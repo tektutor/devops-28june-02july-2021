@@ -88,6 +88,11 @@ mvn help:effective-pom > effective-pom.txt 2>&1
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=org.tektutor -DartifactId=hello -Dversion=1.0.0 -DinteractiveMode=false
 ```
 
+### Creating a sample web application using archetype plugin in batch mode
+```
+mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp -DgroupId=org.tektutor -DartifactId=tektutor-helloweb-app -Dversion=1.0.0 -DinteractiveMode=false
+```
+
 ### Creating a web application in interactive mode
 ```
 mvn archetype:generate
