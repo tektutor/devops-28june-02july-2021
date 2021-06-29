@@ -1,3 +1,8 @@
+### Create soft link 
+```
+sudo ln -s -f /usr/bin/python2 /usr/bin/python
+```
+
 ### Install g++ compiler
 ```
 sudo yum group install "Development Tools"
