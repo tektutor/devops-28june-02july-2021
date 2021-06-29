@@ -82,3 +82,15 @@ curl http://172.17.0.3
 curl http://172.17.0.4
 ```
 
+### Cleanup the existing container
+```
+docker rm -f $(docker ps -aq --filter "name=nginx*")
+```
+
+### Port forwarding
+```
+docker run -d --name nginx1 --hostname nginx1 -p 8001:80 nginx:1.20 
+docker run -d --name nginx2 --hostname nginx2 -p 8002:80 nginx:1.20 
+docker run -d --name nginx3 --hostname nginx3 -p 8003:80 nginx:1.20 
+```
+
