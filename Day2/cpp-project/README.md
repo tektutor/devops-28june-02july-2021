@@ -1,4 +1,4 @@
-###Install g++ compiler
+### Install g++ compiler
 ```
 sudo yum group install "Development Tools"
 ```
