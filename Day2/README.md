@@ -25,7 +25,7 @@ docker start ubuntu1
 
 ### Restarting a container
 ```
-docker restart ubuntu`
+docker restart ubuntu1
 ```
 
 ### Getting inside a running container
