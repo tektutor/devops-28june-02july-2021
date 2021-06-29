@@ -4,7 +4,7 @@ sudo yum group install "Development Tools"
 ```
 or
 ```
-yum groupinstall "Development Tools"
+sudo yum groupinstall "Development Tools"
 ```
 
 ### Compiling the c++ application via Maven
