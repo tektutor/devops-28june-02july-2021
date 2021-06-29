@@ -49,3 +49,23 @@ docker rm -f ubuntu1
 docker inspect | grep IPA
 docker inspect -f {{.NetworkSettings.IPAddress}} ubuntu1
 ```
+
+### Create an nginx web server container
+```
+docker run -d --name nginx1 --hostname nginx1 nginx:1.20
+docker run -d --name nginx2 --hostname nginx2 nginx:1.20
+docker run -d --name nginx3 --hostname nginx3 nginx:1.20
+```
+
+### Listing all nginx containers
+```
+docker ps --filter "name=nginx*"
+```
+
+### Find the IPAddresses of nginx containers
+```
+docker inspect nginx1
+docker inspect nginx2 | grep IPAddress
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx3
+```
+### 
