@@ -68,4 +68,9 @@ docker inspect nginx1
 docker inspect nginx2 | grep IPAddress
 docker inspect -f {{.NetworkSettings.IPAddress}} nginx3
 ```
-### 
+### Accessing the nginx web pages
+```
+curl http://172.17.0.2:80
+curl http://172.17.0.3
+curl http://172.17.0.4
+```
