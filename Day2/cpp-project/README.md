@@ -1,4 +1,4 @@
-### Create soft link 
+### Create soft link for python2 to make python2 as default
 ```
 sudo ln -s -f /usr/bin/python2 /usr/bin/python
 ```
