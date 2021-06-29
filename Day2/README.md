@@ -12,3 +12,23 @@ docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
 ```
 docker ps
 ```
+
+### Stopping a container
+```
+docker stop ubuntu1
+```
+
+### Start a stopped container
+```
+docker start ubuntu1
+```
+
+### Restarting a container
+```
+docker restart ubuntu`
+```
+
+### Getting inside a running container
+```
+docker exec -it ubuntu1 bash
+```
