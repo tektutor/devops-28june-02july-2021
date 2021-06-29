@@ -94,3 +94,10 @@ docker run -d --name nginx2 --hostname nginx2 -p 8002:80 nginx:1.20
 docker run -d --name nginx3 --hostname nginx3 -p 8003:80 nginx:1.20 
 ```
 
+### Test - try to access the web pages from your lab machine web browser
+```
+http://localhost:8001
+http://localhost:8002
+http://localhost:8003
+```
+You may also replace the localhost with the IP Address of your lab machine and let your colleague access your web page.
