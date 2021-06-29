@@ -1,0 +1,26 @@
+###Install g++ compiler
+```
+sudo yum group install "Development Tools"
+```
+or
+```
+yum groupinstall "Development Tools"
+```
+
+### Compiling the c++ application via Maven
+```
+cd Day2/cpp-project
+mvn compile
+```
+
+### Performing a clean build
+```
+cd Day2/cpp-project
+mvn clean compile
+```
+
+### Perform a clean build and executing the application
+```
+cd Day2/cpp-project
+mvn test
+```
