@@ -82,6 +82,19 @@ docker run -d --name centos1 --hostname centos1 -p 2003:22 tektutor/ansible-node
 docker run -d --name centos2 --hostname centos2 -p 2004:22 tektutor/ansible-node-centos:latest 
 ```
 
+#### Check if the centos1 and centos2 containers are running
+```
+docker ps --filter "name=centos*"
+```
+The expected output is shown below
+<pre>
+[jegan@tektutor DevOps]$ docker ps --filter "name=centos*"
+CONTAINER ID   IMAGE                                 COMMAND               CREATED          STATUS          PORTS                                           NAMES
+eeadfc6ce4dd   tektutor/ansible-node-centos:latest   "/usr/sbin/sshd -D"   19 minutes ago   Up 19 minutes   80/tcp, 0.0.0.0:2004->22/tcp, :::2004->22/tcp   centos2
+a9ea5f9a1405   tektutor/ansible-node-centos:latest   "/usr/sbin/sshd -D"   19 minutes ago   Up 19 minutes   80/tcp, 0.0.0.0:2003->22/tcp, :::2003->22/tcp   centos1
+[jegan@tektutor DevOps]$
+</pre>
+
 #### Verify if you can login without password
 ```
 ssh -p 2003 root@localhost
