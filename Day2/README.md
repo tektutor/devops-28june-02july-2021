@@ -1,7 +1,131 @@
+## Installing Docker in CentOS
+```
+sudo yum install yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce
+sudo systemctl enable docker
+```
+
+### Enable API feature in Docker Server
+Edit the /usr/lib/systemd/system/docker.service
+
+```
+sudo vim /usr/lib/systemd/system/docker.service
+```
+Locate the line that looks like below
+```
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```
+
+Append -H tcp://0.0.0.0:4243 as shown below
+```
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:4243
+```
+
+### Restart docker service
+```
+sudo systemctl daemon-reload
+sudo systemctl start docker
+```
+### Check if your configuration is reflected
+```
+sudo systemctl status docker
+```
+You may observe tcp://0.0.0.0:4243 
+
+## Managing Docker Images in Local Docker Registry
+
+### You may download an image from Docker hub using the below command
+```
+docker pull hello-world:latest
+docker pull ubuntu:16.04
+```
+
 ### Listing docker images
 ```
 docker images
 ```
+
+### You may delete an image using the below command
+In case you have some containers created out of the hello-world:latest, you need to delete it first before attempting to delete
+the image.
+```
+docker rmi hello-world:latest
+```
+
+### Creating a custom docker image
+
+#### Configure nginx to work like a load balancer
+
+##### Create a tmp nginx container to copy the nginx.conf file
+```
+docker run -d --name tmp --hostname tmp nginx:1.20
+docker cp tmp:/etc/nginx/nginx.conf .
+```
+
+##### Edit the nginx.conf locally as shown below
+Assuming 
+<pre>
+  172.17.0.2 is the IP address of nginx1 container
+  172.17.0.3 is the IP address of nginx2 container
+  172.17.0.4 is the IP address of nginx3 container  
+</pre>
+
+nginx.conf file contents below
+
+```
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    server {
+       location / {
+		proxy_pass http://backend;
+     }
+    }
+
+    upstream backend {
+        server 172.17.0.2:80; 
+        server 172.17.0.3:80;
+        server 172.17.0.4:80;
+    }
+}
+```
+
+#### Create a Dockerfile with the below content
+
+```
+FROM nginx:1.20
+MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org>
+
+COPY nginx.conf /etc/nginx/nginx.conf
+```
+
+#### Build the docker image
+```
+docker build -t tektutor/nginx-lb .
+```
+
+#### Check if you can see your custom image
+```
+docker images
+```
+
+## Managing Containers
+Containers can be 
+  1. Created in interactive mode or background mode
+  2. Containers can be started, listed, stopped, restarted, deleted
+  3. You may also rename an existing containers
 
 ### Create a container in interactive mode
 ```
@@ -12,6 +136,12 @@ docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
 ```
 docker ps
 ```
+
+### Listing the all containers( from another terminal )
+```
+docker ps -a
+```
+
 
 ### Stopping a container
 ```
