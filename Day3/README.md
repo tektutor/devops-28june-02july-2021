@@ -186,3 +186,36 @@ ansible-doc apt
 ```
 ansible-playbook -i hosts ping-playbook.yml
 ```
+The expected output is
+<pre>
+[jegan@tektutor DevOps]$ cd Day3/Ansible
+[jegan@tektutor Ansible]$ ansible-playbook -i hosts ping-playbook.yml 
+
+PLAY [First play] *******************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+
+TASK [Ping dev machines] ************************************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+PLAY [Second play] ******************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [centos1]
+ok: [centos2]
+
+TASK [Ping qa machines] *************************************************************************************************
+ok: [centos1]
+ok: [centos2]
+
+PLAY RECAP **************************************************************************************************************
+centos1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+centos2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[jegan@tektutor Ansible]$ 
+</pre>
