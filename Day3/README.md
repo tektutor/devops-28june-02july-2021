@@ -44,7 +44,9 @@ e8b6914e6322   tektutor/ansible-node-ubuntu:latest   "/usr/sbin/sshd -D"   About
 #### Verify if you can login without password
 ```
 ssh -p 2001 root@localhost
+exit
 ssh -p 2002 root@localhost
+exit
 ```
 When it prompts with question "Are you sure you want to continue connecting (yes/no): ?" You type yes
 
@@ -98,7 +100,9 @@ a9ea5f9a1405   tektutor/ansible-node-centos:latest   "/usr/sbin/sshd -D"   19 mi
 #### Verify if you can login without password
 ```
 ssh -p 2003 root@localhost
+exit
 ssh -p 2004 root@localhost
+exit
 ```
 When it prompts with question "Are you sure you want to continue connecting (yes/no): ?" You type yes
 
