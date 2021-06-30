@@ -32,8 +32,6 @@ ssh -p 2002 root@localhost
 ```
 When it prompts with question "Are you sure you want to continue connecting (yes/no): ?" You type yes
 
-If you are able to perform ssh the above demonstrated way, you are all set!
-
 ### Building ansible centos custom image
 ```
 cd Day3/centos-ansible
