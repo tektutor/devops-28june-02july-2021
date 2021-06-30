@@ -65,6 +65,13 @@ docker run -d --name tmp --hostname tmp nginx:1.20
 docker cp tmp:/etc/nginx/nginx.conf .
 ```
 
+#### Create nginx1, nginx2 and nginx3 containers
+```
+docker run -d --name nginx1 --hostname nginx1 nginx:1.20
+docker run -d --name nginx2 --hostname nginx2 nginx:1.20
+docker run -d --name nginx3 --hostname nginx3 nginx:1.20
+```
+
 ##### Edit the nginx.conf locally as shown below
 Assuming 
 <pre>
