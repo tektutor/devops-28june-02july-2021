@@ -28,6 +28,19 @@ docker run -d --name ubuntu1 --hostname ubuntu1 -p 2001:22 tektutor/ansible-node
 docker run -d --name ubuntu2 --hostname ubuntu2 -p 2002:22 tektutor/ansible-node-ubuntu:latest 
 ```
 
+#### Check if the ubuntu1 and ubuntu2 containers are running
+```
+docker ps --filter "name=ubuntu*"
+```
+The expected output is shown below
+<pre>
+[jegan@tektutor DevOps]$ docker ps --filter "name=ubuntu*"
+CONTAINER ID   IMAGE                                 COMMAND               CREATED             STATUS             PORTS                                           NAMES
+3d829e1b0630   tektutor/ansible-node-ubuntu:latest   "/usr/sbin/sshd -D"   About an hour ago   Up About an hour   80/tcp, 0.0.0.0:2002->22/tcp, :::2002->22/tcp   ubuntu2
+e8b6914e6322   tektutor/ansible-node-ubuntu:latest   "/usr/sbin/sshd -D"   About an hour ago   Up About an hour   80/tcp, 0.0.0.0:2001->22/tcp, :::2001->22/tcp   ubuntu1
+[jegan@tektutor DevOps]$ 
+</pre>
+
 #### Verify if you can login without password
 ```
 ssh -p 2001 root@localhost
