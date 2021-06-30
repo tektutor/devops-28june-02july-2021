@@ -227,7 +227,7 @@ ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    s
 
 ### Using ansible.cfg to point out the inventory file
 ```
-[defauls]
+[defaults]
 deprecation_warnings=False
 inventory=./hosts
 ```
