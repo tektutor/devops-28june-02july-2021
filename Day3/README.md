@@ -1,3 +1,18 @@
+## Ansible Overview
+- Ansible is an open-source configuration management tool
+- Developed by Michael Deehan & Open source community in Python 
+- Domain Specific Language used in Ansible in YAML(Yet Another Markup Language)
+- Ansible is an agent-less configuration management tool while Chef/Puppet involves installing a proprietary agent into the nodes.
+- Ansible Controller Machine (ACM) is the machine where Ansible is installed.
+- We develop playbooks, inventory, roles, etc, in the ACM
+- Ansible Nodes are the machine where you wish to perform software installation automation
+- For unix/linux/mac ansible nodes, we need to ensure the machine has Python and SSH Server installed
+- For Windows ansible nodes, we need to ensure the machine has PowerShell(with compatible .Net Framework) and WinRM configured
+- The opensource edition of Ansible is generally reffered as Ansible Core
+- The enterprise edition of Ansible is Ansible Tower from RedHat(An IBM company)
+- Ansible can only be installed in a Linux machine preferably CentOS/RHEL.
+- Ansible nodes can be Windows, Unix, Linux and Mac
+
 ### Create ssh key-pairs for rps user
 ```
 ssh-keygen
