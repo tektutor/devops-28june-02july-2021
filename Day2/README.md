@@ -30,8 +30,8 @@ docker cp tmp:/etc/nginx/nginx.conf .
 Assuming 
 <pre>
   172.17.0.2 is the IP address of nginx1 container
-  172.17.0.3 is the IP address of nginx1 container
-  172.17.0.4 is the IP address of nginx1 container  
+  172.17.0.3 is the IP address of nginx2 container
+  172.17.0.4 is the IP address of nginx3 container  
 </pre>
 
 nginx.conf file contents below
