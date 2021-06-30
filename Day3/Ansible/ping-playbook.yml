@@ -1,0 +1,11 @@
+- name: First play
+  hosts: dev
+  tasks:
+     - name: Ping dev machines
+       ping:
+
+- name: Second play
+  hosts: qa
+  tasks:
+     - name: Ping qa machines
+       ping:
