@@ -166,6 +166,11 @@ centos1 | SUCCESS => {
 ansible -i hosts all -m shell -a "hostname"
 ansible -i hosts all -m shell -a "hostname -i"
 ```
+### Module that gathers facts about ansible nodes
+```
+ansible -i hosts ubuntu1 -m setup
+ansible -i hosts centos2 -m setup
+```
 
 ### Finding ansible modules supported in your system
 ```
@@ -219,3 +224,4 @@ ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    s
 
 [jegan@tektutor Ansible]$ 
 </pre>
+
