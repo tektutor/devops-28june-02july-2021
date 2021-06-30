@@ -107,3 +107,9 @@ exit
 When it prompts with question "Are you sure you want to continue connecting (yes/no): ?" You type yes
 
 If you are able to perform ssh the above demonstrated way, you are all set!
+
+## Ansible ping
+```
+cd Day3/Ansible
+ansible -i inventory all -m ping
+```
