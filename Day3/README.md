@@ -225,3 +225,18 @@ ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    s
 [jegan@tektutor Ansible]$ 
 </pre>
 
+### Using ansible.cfg to point out the inventory file
+```
+[defauls]
+inventory=./hosts
+```
+
+Ad-hoc commands
+```
+ansible all -m ping 
+```
+
+Executing the playbook 
+```
+ansible-playbook ping-playbook.yml
+```
