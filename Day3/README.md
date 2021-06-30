@@ -241,3 +241,13 @@ Executing the playbook
 ```
 ansible-playbook ping-playbook.yml
 ```
+
+### What really happens when you run an ansible ad-hoc command
+1. Ansible makes an ssh connection using the details provided in the inventory file
+2. Creates tmp directory in ACM and in the Ansible Node
+3. Copy the ansible module from ACM tmp to Ansible Node tmp folder
+4. Provides execute permission to ansible python script on the Ansible Node
+5. Executes the python script(ansible module) on the Ansible Node
+6. Captures the output of the python script (like success/failed, did it modify anything on the machine,etc details)
+7. Deletes tmp directory created on the Ansible Node
+8. Prints a summary of the output response in the ACM. 
