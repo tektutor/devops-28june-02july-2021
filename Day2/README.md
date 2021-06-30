@@ -76,7 +76,7 @@ Build the docker image
 docker build -t tektutor/nginx-lb .
 ```
 
-### Check if you can see your custom image
+#### Check if you can see your custom image
 ```
 docker images
 ```
