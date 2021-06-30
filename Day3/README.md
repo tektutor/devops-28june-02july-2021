@@ -18,6 +18,9 @@ docker images
 ```
 
 ### Testing the image
+In order to test the image, we need to
+1. Create couple of containers using our custom image
+2. See if we can perform ssh login with key-based login authentication
 
 #### Create two containers using custom image
 ```
