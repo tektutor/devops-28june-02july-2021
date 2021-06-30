@@ -137,6 +137,12 @@ docker run -it --name ubuntu1 --hostname ubuntu1 ubuntu:16.04 /bin/bash
 docker ps
 ```
 
+### Listing the all containers( from another terminal )
+```
+docker ps -a
+```
+
+
 ### Stopping a container
 ```
 docker stop ubuntu1
