@@ -123,7 +123,7 @@ When it prompts with question "Are you sure you want to continue connecting (yes
 
 If you are able to perform ssh the above demonstrated way, you are all set!
 
-## Ansible ping
+## Ansible ping ad-hoc command
 ```
 cd Day3/Ansible
 ansible -i inventory all -m ping
@@ -160,6 +160,12 @@ centos1 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+### Other commonly used ad-hoc commands
+```
+ansible -i hosts all -m shell -a "hostname"
+ansible -i hosts all -m shell -a "hostname -i"
+```
 
 ### Finding ansible modules supported in your system
 ```
