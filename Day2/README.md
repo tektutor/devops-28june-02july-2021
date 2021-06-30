@@ -1,3 +1,40 @@
+## Installing Docker in CentOS
+```
+sudo yum install yum-utils
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce
+sudo systemctl enable docker
+```
+
+### Enable API feature in Docker Server
+Edit the /usr/lib/systemd/system/docker.service
+
+```
+sudo vim /usr/lib/systemd/system/docker.service
+```
+Locate the line that looks like below
+```
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```
+
+Append -H tcp://0.0.0.0:4243 as shown below
+```
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:4243
+```
+
+### Restart docker service
+```
+sudo systemctl daemon-reload
+sudo systemctl start docker
+```
+### Check if your configuration is reflected
+```
+sudo systemctl status docker
+```
+You may observe tcp://0.0.0.0:4243 
+
 ## Managing Docker Images in Local Docker Registry
 
 ### You may download an image from Docker hub using the below command
