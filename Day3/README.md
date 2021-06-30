@@ -46,6 +46,20 @@ docker build -t tektutor/ansible-node-centos:latest .
 ```
 docker images
 ```
+You should get a similar output as shown below
+<pre>
+[jegan@tektutor DevOps]$ docker images
+REPOSITORY                                TAG       IMAGE ID       CREATED             SIZE
+tektutor/ansible-node-centos              latest    944801bbdcd0   14 minutes ago      250MB
+tektutor/ansible-node-ubuntu              latest    390b04b9ddf6   About an hour ago   220MB
+tektutor/nginx-lb                         1.0       7735899f0eac   20 hours ago        133MB
+nginx                                     1.20      7ca45f2d188b   7 days ago          133MB
+mysql                                     latest    5c62e459e087   7 days ago          556MB
+ubuntu                                    16.04     065cf14a189c   12 days ago         135MB
+docker.bintray.io/jfrog/artifactory-oss   latest    b459de446b90   13 days ago         787MB
+centos                                    8         300e315adb2f   6 months ago        209MB
+[jegan@tektutor DevOps]$ 
+</pre>
 
 ### Testing the image
 
