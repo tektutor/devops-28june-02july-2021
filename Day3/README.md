@@ -160,3 +160,23 @@ centos1 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+### Finding ansible modules supported in your system
+```
+ansible-doc -l
+```
+
+### Finding number of ansible modules supported
+```
+ansible-doc | wc -l
+```
+
+### Finding help info about a particular ansible module
+```
+ansible-doc apt
+```
+
+### Running ansible-playbook
+```
+ansible-playbook -i hosts ping-playbook.yml
+```
