@@ -76,13 +76,14 @@ Assuming
   172.17.0.4 is the IPAddress of nginx3
 </pre>
 
+You may access the respective web pages from nginx1, nginx2 and nginx3 containers as shown below
 ```
 curl http://172.17.0.2:80
 curl http://172.17.0.3
 curl http://172.17.0.4
 ```
 
-### Cleanup the existing container
+### Cleanup the existing nginx container
 ```
 docker rm -f $(docker ps -aq --filter "name=nginx*")
 ```
@@ -100,6 +101,51 @@ http://localhost:8001
 http://localhost:8002
 http://localhost:8003
 ```
-You may also replace the localhost with the IP Address of your lab machine and let your colleague access your web page.
+You may also replace the localhost with the IP Address of your lab machine and let your colleagues access your web page.
 
-### 
+## Setting up a load balancer with nginx
+
+### Delete any existing containers
+```
+docker rm -f $(docker ps -aq)
+```
+
+### Create 3 or more nginx web servers
+```
+docker run -d --name nginx1 --hostname nginx1 nginx:1.20
+docker run -d --name nginx2 --hostname nginx2 nginx:1.20
+docker run -d --name nginx3 --hostname nginx3 nginx:1.20
+```
+
+### Create a load balancer container
+```
+docker run -d --name lb --hostname lb -p 80:80 tektutor/nginx-lb:1.0
+```
+
+### Update the index.html web page in nginx1, nginx2 and nginx3 containers
+```
+docker exec -it nginx1 bash
+echo "Server 1" > /usr/share/nginx/html/index.html
+exit
+
+docker exec -it nginx2 bash
+echo "Server 2" > /usr/share/nginx/html/index.html
+exit
+
+docker exec -it nginx3 bash
+echo "Server 3" > /usr/share/nginx/html/index.html
+exit
+```
+
+### Test load balancer setup now
+```
+curl http://localhost
+curl http://localhost
+curl http://localhost
+```
+Each time you try the above url, you are supposed to get outputs similar to in round robin fashion. 
+<pre>
+  Server 1
+  Server 2 
+  Server 3
+</pre>
