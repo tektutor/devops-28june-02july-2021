@@ -20,13 +20,15 @@ docker rmi hello-world:latest
 
 ### Creating a custom docker image
 
-#### Create a tmp nginx container to copy the nginx.conf file
+#### Configure nginx to work like a load balancer
+
+##### Create a tmp nginx container to copy the nginx.conf file
 ```
 docker run -d --name tmp --hostname tmp nginx:1.20
 docker cp tmp:/etc/nginx/nginx.conf .
 ```
 
-#### Edit the nginx.conf locally as shown below
+##### Edit the nginx.conf locally as shown below
 Assuming 
 <pre>
   172.17.0.2 is the IP address of nginx1 container
@@ -35,6 +37,7 @@ Assuming
 </pre>
 
 nginx.conf file contents below
+
 ```
 user  nginx;
 worker_processes  auto;
@@ -62,7 +65,7 @@ http {
 }
 ```
 
-Create a Dockerfile with the below content
+#### Create a Dockerfile with the below content
 
 ```
 FROM nginx:1.20
@@ -71,7 +74,7 @@ MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org>
 COPY nginx.conf /etc/nginx/nginx.conf
 ```
 
-Build the docker image
+#### Build the docker image
 ```
 docker build -t tektutor/nginx-lb .
 ```
