@@ -113,3 +113,35 @@ If you are able to perform ssh the above demonstrated way, you are all set!
 cd Day3/Ansible
 ansible -i inventory all -m ping
 ```
+The expected outpus is shown below
+<pre>
+[jegan@tektutor Ansible]$ ansible -i inventory all -m ping
+ubuntu2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+ubuntu1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+centos2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+centos1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+</pre>
