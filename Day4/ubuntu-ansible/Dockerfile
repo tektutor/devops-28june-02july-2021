@@ -16,6 +16,7 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 RUN mkdir -p /root/.ssh
 RUN mkdir -p /home/tektutor/.ssh
+RUN chown -R tektutor:tektutor /home/tektutor 
 COPY authorized_keys /root/.ssh/authorized_keys
 COPY authorized_keys /home/tektutor/.ssh/authorized_keys
 
