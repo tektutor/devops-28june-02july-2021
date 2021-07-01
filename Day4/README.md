@@ -52,7 +52,12 @@ Last login: Thu Jul  1 05:31:54 2021 from 172.17.0.1
 tektutor@test:~$ 
 </pre>
 
-### Running the playbook
+### Running the playbook that install vim onto the image with tektutor user
 ```
 ansible-playbook install-playbook.yml
+```
+
+### Running the install nginx playbook on dev group(ubuntu machines)
+```
+ansible-playbook install-nginx-playbook.yml
 ```
