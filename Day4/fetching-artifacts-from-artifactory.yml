@@ -1,0 +1,10 @@
+---
+- name: This playbook will download jar file from JFrog artifactory
+  hosts: localhost
+  tasks:
+    - name: Download Artifact from JFrog Artifactory
+      get_url:
+         url: http://172.17.0.6:8082/artifactory/tektutor/org/tektutor/main/1.0.0/main-1.0.0.jar 
+         dest: . 
+         url_username: admin
+         url_password: Admin@123
