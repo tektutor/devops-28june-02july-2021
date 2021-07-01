@@ -123,7 +123,7 @@ When it prompts with question "Are you sure you want to continue connecting (yes
 
 If you are able to perform ssh the above demonstrated way, you are all set!
 
-## Ansible ping
+## Ansible ping ad-hoc command
 ```
 cd Day3/Ansible
 ansible -i inventory all -m ping
@@ -160,3 +160,94 @@ centos1 | SUCCESS => {
     "ping": "pong"
 }
 </pre>
+
+### Other commonly used ad-hoc commands
+```
+ansible -i hosts all -m shell -a "hostname"
+ansible -i hosts all -m shell -a "hostname -i"
+```
+### Module that gathers facts about ansible nodes
+```
+ansible -i hosts ubuntu1 -m setup
+ansible -i hosts centos2 -m setup
+```
+
+### Finding ansible modules supported in your system
+```
+ansible-doc -l
+```
+
+### Finding number of ansible modules supported
+```
+ansible-doc | wc -l
+```
+
+### Finding help info about a particular ansible module
+```
+ansible-doc apt
+```
+
+### Running ansible-playbook
+```
+ansible-playbook -i hosts ping-playbook.yml
+```
+The expected output is
+<pre>
+[jegan@tektutor DevOps]$ cd Day3/Ansible
+[jegan@tektutor Ansible]$ ansible-playbook -i hosts ping-playbook.yml 
+
+PLAY [First play] *******************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [ubuntu2]
+ok: [ubuntu1]
+
+TASK [Ping dev machines] ************************************************************************************************
+ok: [ubuntu1]
+ok: [ubuntu2]
+
+PLAY [Second play] ******************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************
+ok: [centos1]
+ok: [centos2]
+
+TASK [Ping qa machines] *************************************************************************************************
+ok: [centos1]
+ok: [centos2]
+
+PLAY RECAP **************************************************************************************************************
+centos1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+centos2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu1                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+ubuntu2                    : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[jegan@tektutor Ansible]$ 
+</pre>
+
+### Using ansible.cfg to point out the inventory file
+```
+[defaults]
+deprecation_warnings=False
+inventory=./hosts
+```
+
+Ad-hoc commands
+```
+ansible all -m ping 
+```
+
+Executing the playbook 
+```
+ansible-playbook ping-playbook.yml
+```
+
+### What really happens when you run an ansible ad-hoc command
+1. Ansible makes an ssh connection using the details provided in the inventory file
+2. Creates tmp directory in ACM and in the Ansible Node
+3. Copy the ansible module from ACM tmp to Ansible Node tmp folder
+4. Provides execute permission to ansible python script on the Ansible Node
+5. Executes the python script(ansible module) on the Ansible Node
+6. Captures the output of the python script (like success/failed, did it modify anything on the machine,etc details)
+7. Deletes tmp directory created on the Ansible Node
+8. Prints a summary of the output response in the ACM. 
