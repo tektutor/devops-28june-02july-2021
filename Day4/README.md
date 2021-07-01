@@ -24,6 +24,20 @@ docker ps
 ```
 ssh -p tektutor@localhost
 ```
+The expected output is
+<pre>
+[jegan@tektutor Day4]$ docker ps --filter "name=test"
+CONTAINER ID   IMAGE                                 COMMAND               CREATED          STATUS          PORTS                                           NAMES
+5ef865cb2a68   tektutor/ansible-ubuntu-sudo:latest   "/usr/sbin/sshd -D"   11 minutes ago   Up 11 minutes   80/tcp, 0.0.0.0:2005->22/tcp, :::2005->22/tcp   test
+[jegan@tektutor Day4]$ ssh -p 2005 tektutor@localhost
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.18.0-240.el8.x86_64 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+Last login: Thu Jul  1 05:31:54 2021 from 172.17.0.1
+tektutor@test:~$ 
+</pre>
 
 ### Running the playbook
 ```
