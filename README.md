@@ -11,4 +11,5 @@ We need CentOS 7.7 or CentOS 8.3 64-bit OS for this training. We need the below 
 8. SonarQube
 9. JFrog Artifactory OSS(opensource) edition
 
+
 We will be using Docker containers as Ansible Nodes.
