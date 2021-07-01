@@ -1,4 +1,4 @@
-- name: This playbook will install nginx, configure nginx to use custom document folder and will deploy a custom html page
+- name: This play will install nginx, configure nginx to use custom document folder and will deploy a custom html page in Ubuntu
   hosts: dev 
   vars:
     - greeting_msg: DevOps!

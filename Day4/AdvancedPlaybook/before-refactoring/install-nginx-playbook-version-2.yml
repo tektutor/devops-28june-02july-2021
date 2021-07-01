@@ -1,0 +1,60 @@
+- name: This play will install nginx, configure nginx to use custom document folder and will deploy a custom html page in Ubuntu
+  hosts: dev 
+  vars:
+    - greeting_msg: DevOps!
+
+  vars_files:
+    - my_vars_file
+
+  tasks:
+    - name: Install nginx in Ubuntu
+      apt: name=nginx state=latest update_cache=yes
+
+    - name: Create the custom document root folder
+      file: path=/var/html state=directory mode=0755
+
+    - name: Configure nginx document root folder to use our custom folder
+      copy: src=default dest=/etc/nginx/sites-available/default mode=0755 
+
+    - name: Start the nginx web server in Ubuntu
+      shell: /etc/init.d/nginx start
+
+    - name: Deploy custom html page into nginx web server in Ubuntu
+      template: src=index.html dest=/var/html/index.html
+
+- name: This play will install nginx, configure nginx to use custom document folder and will deploy a custom html page in CentOS
+  hosts: qa
+  vars:
+    - greeting_msg: DevOps!
+
+  vars_files:
+    - my_vars_file
+
+  tasks:
+    - name: Install Extra Package for Enterprise Linux (EPEL) in CentOS
+      yum: name=epel-release state=latest
+
+    - name: Install nginx in CentOS
+      yum: name=nginx state=latest update_cache=yes
+
+    - name: Create the custom document root folder
+      file: path=/var/html state=directory mode=0755
+
+    - name: Check if the nginx server is up and running
+      shell: curl http://localhost
+      register: output
+      ignore_errors: yes
+
+    - name: Start the nginx web server in CentOS 
+      when: output.rc != 0
+      shell: /usr/sbin/nginx
+
+    - name: Configure nginx document root folder to use our custom folder
+      copy: src=nginx.conf dest=/etc/nginx/nginx.conf mode=0755 
+
+    - name: Restart the nginx web server in CentOS 
+      when: output.rc == 0
+      shell: /usr/sbin/nginx -s stop && /usr/sbin/nginx
+
+    - name: Deploy custom html page into nginx web server in Ubuntu
+      template: src=index.html dest=/var/html/index.html

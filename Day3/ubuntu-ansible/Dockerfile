@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org>
 
-RUN apt-get update && apt-get install -y openssh-server python3
+RUN apt-get update && apt-get install -y openssh-server python3 curl
 RUN ln -s -f /usr/bin/python3 /usr/bin/python
 RUN mkdir -p /var/run/sshd
 RUN echo 'root:root' | chpasswd

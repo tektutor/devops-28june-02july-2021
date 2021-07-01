@@ -1,0 +1,55 @@
+- name: This play will install nginx, configure nginx to use custom document folder and will deploy a custom html page in Ubuntu
+  hosts: all 
+  vars:
+    - greeting_msg: DevOps!
+
+  vars_files:
+    - my_vars_file
+
+  tasks:
+    - name: Install nginx in Ubuntu
+      when: ansible_distribution == "Ubuntu"
+      apt: name=nginx state=latest update_cache=yes
+
+    - name: Install Extra Package for Enterprise Linux (EPEL) in CentOS
+      when: ansible_distribution == "CentOS" 
+      yum: name=epel-release state=latest
+
+    - name: Install nginx in CentOS
+      when: ansible_distribution == "CentOS"
+      yum: name=nginx state=latest update_cache=yes
+
+    - name: Create the custom document root folder
+      file: path=/var/html state=directory mode=0755
+
+    - name: Check if the nginx server is up and running
+      shell: curl http://localhost
+      register: output
+      ignore_errors: yes
+
+    - name: Start the nginx web server in Ubuntu
+      when: ( output.rc !=0  and ansible_distribution == "Ubuntu")
+      shell: /etc/init.d/nginx start
+
+    - name: Start the nginx web server in CentOS 
+      when: ( output.rc !=0 and ansible_distribution == "CentOS" )
+      shell: /usr/sbin/nginx
+
+    - name: Configure nginx document root folder to use our custom folder in Ubuntu
+      when: ansible_distribution == "Ubuntu"
+      copy: src=default dest=/etc/nginx/sites-available/default mode=0755 
+
+    - name: Restart the nginx web server in Ubuntu
+      when: ansible_distribution == "Ubuntu"
+      shell: /etc/init.d/nginx restart 
+
+    - name: Configure nginx document root folder to use our custom folder in CentOS
+      when: ansible_distribution == "CentOS" 
+      copy: src=nginx.conf dest=/etc/nginx/nginx.conf mode=0755 
+
+    - name: Restart the nginx web server in CentOS 
+      when: ( ansible_distribution == "CentOS" and output.rc == 0 )
+      shell: /usr/sbin/nginx -s stop && /usr/sbin/nginx
+
+    - name: Deploy custom html page into nginx web server
+      template: src=index.html dest=/var/html/index.html
