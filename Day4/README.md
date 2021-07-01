@@ -35,7 +35,7 @@ CONTAINER ID   IMAGE                                 COMMAND               CREAT
 
 ### Test if you can perform ssh to the container
 ```
-ssh -p tektutor@localhost
+ssh -p 2005 tektutor@localhost
 ```
 The expected output is
 <pre>
