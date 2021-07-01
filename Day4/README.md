@@ -7,8 +7,14 @@ docker build -t tektutor/ansible-ubuntu-sudo:latest .
 
 ### Verify if the new image built is listed
 ```
-docker images
+docker images --filter "reference=tektutor/ansible-ubuntu-sudo*"
 ```
+The expected output is
+<pre>
+jegan@tektutor Day4]$ docker images --filter "reference=tektutor/ansible-ubuntu-sudo*"
+REPOSITORY                     TAG       IMAGE ID       CREATED          SIZE
+tektutor/ansible-ubuntu-sudo   latest    e3dc1e5dcd4f   18 minutes ago   222MB
+</pre>
 
 ### Create a test container using the custom image
 ```
