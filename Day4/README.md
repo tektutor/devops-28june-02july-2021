@@ -59,5 +59,18 @@ ansible-playbook install-playbook.yml
 
 ### Running the install nginx playbook on dev group(ubuntu machines)
 ```
-ansible-playbook install-nginx-playbook.yml
+cd Day4/AdvancedPlaybook/before-refactoring
+ansible-playbook install-nginx-playbook-version-1.yml
+```
+
+### Running the install nginx playbook on dev and qa in separate play group
+```
+cd Day4/AdvancedPlaybook/before-refactoring
+ansible-playbook install-nginx-playbook-version-2.yml
+```
+
+### Running the install nginx playbook on all group within a single play with conditional installations
+```
+cd Day4/AdvancedPlaybook/before-refactoring
+ansible-playbook install-nginx-playbook-version-3.yml
 ```
