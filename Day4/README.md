@@ -54,23 +54,28 @@ tektutor@test:~$
 
 ### Running the playbook that install vim onto the image with tektutor user
 ```
+cd Day4
 ansible-playbook install-playbook.yml
+cd ..
 ```
 
 ### Running the install nginx playbook on dev group(ubuntu machines)
 ```
 cd Day4/AdvancedPlaybook/before-refactoring
 ansible-playbook install-nginx-playbook-version-1.yml
+cd ../../..
 ```
 
 ### Running the install nginx playbook on dev and qa in separate play group
 ```
 cd Day4/AdvancedPlaybook/before-refactoring
 ansible-playbook install-nginx-playbook-version-2.yml
+cd ../../..
 ```
 
 ### Running the install nginx playbook on all group within a single play with conditional installations
 ```
 cd Day4/AdvancedPlaybook/before-refactoring
 ansible-playbook install-nginx-playbook-version-3.yml
+cd ../../..
 ```
