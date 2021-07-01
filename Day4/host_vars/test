@@ -1,0 +1,4 @@
+ansible_port: 2005
+ansible_user: tektutor
+ansible_become_user: root
+ansible_become_password: tektutor

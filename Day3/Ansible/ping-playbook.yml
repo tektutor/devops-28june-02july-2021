@@ -1,5 +1,6 @@
 - name: First play
   hosts: dev
+  gather_facts: no
   tasks:
      - name: Ping dev machines
        ping:

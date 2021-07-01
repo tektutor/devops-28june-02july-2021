@@ -1,0 +1,6 @@
+- name: This playbook will demonstrate on how to install software tools into ansible nodes
+  hosts: ubuntu 
+  become: yes
+  tasks:
+    - name: Install vim editor
+      apt: name=vim state=latest update_cache=yes

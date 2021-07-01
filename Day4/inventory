@@ -1,0 +1,15 @@
+[all]
+ubuntu[1:2]
+centos[1:2]
+test
+
+[dev]
+ubuntu[1:2]
+
+[ubuntu]
+test
+
+[qa]
+centos[1:2]
+
+
