@@ -1,0 +1,5 @@
+- name: Configure nginx document root folder to use our custom folder in CentOS
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf mode=0755 
+
+- name: Restart the nginx web server in CentOS 
+  shell: /usr/sbin/nginx -s stop && /usr/sbin/nginx

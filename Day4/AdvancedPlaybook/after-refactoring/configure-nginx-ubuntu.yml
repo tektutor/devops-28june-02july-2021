@@ -1,0 +1,5 @@
+- name: Configure nginx document root folder to use our custom folder in Ubuntu
+  copy: src=default dest=/etc/nginx/sites-available/default mode=0755 
+
+- name: Restart the nginx web server in Ubuntu
+  shell: /etc/init.d/nginx restart 

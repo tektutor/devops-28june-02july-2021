@@ -1,0 +1,10 @@
+- name: Create the custom document root folder
+  file: path=/var/html state=directory mode=0755
+
+- name: Check if the nginx server is up and running
+  shell: curl http://localhost
+  register: output
+  ignore_errors: yes
+
+- name: Deploy custom html page into nginx web server
+  template: src=index.html dest=/var/html/index.html
