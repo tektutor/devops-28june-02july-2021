@@ -86,3 +86,9 @@ cd Day4/AdvancedPlaybook/after-refactoring
 ansible-playbook install-nginx-playbook.yml
 cd ../../..
 ```
+### Fetching artifacts from JFrog artifactory
+```
+cd Day4
+ansible-playbook fetching-artifacts-from-artifactory.yml
+cd ..
+```
