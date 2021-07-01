@@ -1,0 +1,23 @@
+- name: This playbook will install nginx, configure nginx to use custom document folder and will deploy a custom html page
+  hosts: dev 
+  vars:
+    - greeting_msg: DevOps!
+
+  vars_files:
+    - my_vars_file
+
+  tasks:
+    - name: Install nginx in Ubuntu
+      apt: name=nginx state=latest update_cache=yes
+
+    - name: Create the custom document root folder
+      file: path=/var/html state=directory mode=0755
+
+    - name: Configure nginx document root folder to use our custom folder
+      copy: src=default dest=/etc/nginx/sites-available/default mode=0755 
+
+    - name: Start the nginx web server in Ubuntu
+      shell: /etc/init.d/nginx start
+
+    - name: Deploy custom html page into nginx web server in Ubuntu
+      template: src=index.html dest=/var/html/index.html

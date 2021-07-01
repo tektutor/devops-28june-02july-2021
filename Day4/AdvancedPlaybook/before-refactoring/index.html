@@ -1,0 +1,15 @@
+<html>
+    <head>
+      <title>Welcome to {{greeting_msg}}</title>
+    </head>
+
+    <body>
+	<h3 style="color:blue">Hostname - {{ansible_hostname}}</h3>
+	<h3 style="color:blue">User - {{ansible_user}}</h3>
+	<h3 style="color:blue">User - {{provisioner_tool}}</h3>
+	<h3 style="color:blue">User - {{conf_mgr_tool}}</h3>
+	<h3 style="color:blue">Distribution - {{ansible_distribution}}</h3>
+	<h3 style="color:blue">Distribution version - {{ansible_distribution_version}}</h3>
+	<h3 style="color:blue">OS Family - {{ansible_os_family}}</h3>
+    </body>
+</html>
