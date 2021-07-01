@@ -79,3 +79,10 @@ cd Day4/AdvancedPlaybook/before-refactoring
 ansible-playbook install-nginx-playbook-version-3.yml
 cd ../../..
 ```
+
+### Running the refactored playbook
+```
+cd Day4/AdvancedPlaybook/after-refactoring
+ansible-playbook install-nginx-playbook.yml
+cd ../../..
+```
