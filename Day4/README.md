@@ -19,6 +19,13 @@ docker run -d --name test --hostname test -p 2005:22 tektutor/ansible-ubuntu-sud
 ```
 docker ps
 ```
+The expected output is
+<pre>
+jegan@tektutor Day4]$ docker ps --filter "name=test"
+CONTAINER ID   IMAGE                                 COMMAND               CREATED          STATUS          PORTS                                           NAMES
+5ef865cb2a68   tektutor/ansible-ubuntu-sudo:latest   "/usr/sbin/sshd -D"   11 minutes ago   Up 11 minutes   80/tcp, 0.0.0.0:2005->22/tcp, :::2005->22/tcp   test
+[jegan@tektutor Day4]$ ssh -p 2005 tektutor@localhost
+</pre>
 
 ### Test if you can perform ssh to the container
 ```
