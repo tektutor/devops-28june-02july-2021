@@ -1,0 +1,12 @@
+- name: Build Jenkins slave docker image
+  hosts: localhost
+  tasks:
+    - name: Build custom docker image
+      docker_image:
+         docker_host: tcp://localhost:4243
+         name: tektutor/devops-jenkins-slave:latest
+         build:
+           dockerfile: Dockerfile
+           path: .
+           pull: no
+         state: present
