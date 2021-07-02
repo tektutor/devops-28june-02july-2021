@@ -20,6 +20,8 @@ RUN mkdir -p /root/.ssh
 COPY authorized_keys /root/.ssh/authorized_keys
 RUN chmod 700 -R /root/.ssh
 
+COPY bashrc /root/.bashrc
+
 # Add sshd running directory.
 RUN mkdir -m 700 /var/run/sshd
 
