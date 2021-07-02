@@ -8,10 +8,10 @@
         yum: name=java-11-openjdk-devel state=latest update_cache=yes
 
       - name: Download Maven 3.8.1
-        shell: wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz -O /tmp
+        shell: wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz -P /tmp
 
       - name: Extract Maven tar
-        shell: tar xvfz /tmp/apache-maven-3.8.1-bin.tar.gz -P /tmp
+        shell: tar xvfz /tmp/apache-maven-3.8.1-bin.tar.gz -o /tmp
 
         #      - name: Setup JDK and Maven environment path
         #copy: src=bashrc dest=/root/.bashrc 
