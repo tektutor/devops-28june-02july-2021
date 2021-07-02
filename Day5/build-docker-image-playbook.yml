@@ -1,6 +1,10 @@
 - name: Build Jenkins slave docker image
   hosts: localhost
   tasks:
+    - name: Delete custom docker image
+      shell: docker rmi tektutor/devops-jenkins-slave:lates
+      ignore_errors: yes
+
     - name: Build custom docker image
       docker_image:
          docker_host: tcp://localhost:4243
