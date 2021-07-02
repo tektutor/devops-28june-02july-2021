@@ -13,6 +13,6 @@
       - name: Extract Maven tar
         unarchive: remote_src=yes src=/tmp/apache-maven-3.8.1-bin.tar.gz dest=/tmp
 
-        #      - name: Setup JDK and Maven environment path
-        #copy: src=bashrc dest=/root/.bashrc 
+      - name: Setup JDK and Maven environment path
+        copy: src=bashrc dest=/root/.bashrc 
 
