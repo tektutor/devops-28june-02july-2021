@@ -2,7 +2,7 @@
   hosts: localhost
   tasks:
     - name: Delete custom docker image
-      shell: docker rmi tektutor/devops-jenkins-slave:lates
+      shell: docker rmi tektutor/devops-jenkins-slave:latest
       ignore_errors: yes
 
     - name: Build custom docker image
