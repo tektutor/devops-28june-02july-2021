@@ -1,0 +1,18 @@
+- name: This playbook will install JDK11 and Maven381 in the Jenkins Slave Node
+  hosts: all
+  tasks:
+      - name: Install Extra Packages for Enterprise Linux(EPEL)
+        yum: name=epel-release state=latest
+
+      - name: Install JDK 11.x
+        yum: name=java-11-openjdk-devel state=latest update_cache=yes
+
+      - name: Download Maven 3.8.1
+        shell: wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz -O /tmp
+
+      - name: Extract Maven tar
+        shell: tar xvfz /tmp/apache-maven-3.8.1-bin.tar.gz -C /tmp
+
+        #      - name: Setup JDK and Maven environment path
+        #copy: src=bashrc dest=/root/.bashrc 
+
