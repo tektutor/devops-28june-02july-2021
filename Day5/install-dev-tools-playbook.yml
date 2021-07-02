@@ -11,7 +11,7 @@
         shell: wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz -O /tmp
 
       - name: Extract Maven tar
-        shell: tar xvfz /tmp/apache-maven-3.8.1-bin.tar.gz -C /tmp
+        shell: tar xvfz /tmp/apache-maven-3.8.1-bin.tar.gz -P /tmp
 
         #      - name: Setup JDK and Maven environment path
         #copy: src=bashrc dest=/root/.bashrc 
