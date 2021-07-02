@@ -10,3 +10,4 @@
            path: .
            pull: no
          state: present
+         source: build
